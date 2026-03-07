@@ -15,7 +15,27 @@ let package = Package(
             dependencies: ["CNemoTextProcessing"],
             linkerSettings: [
                 .unsafeFlags([
-                    "-L/Users/kikow/brandon/voicelink/NeMo-text-processing-rs/target/aarch64-apple-darwin/release",
+                    "-L../target/aarch64-apple-darwin/release",
+                    "-lnemo_text_processing"
+                ])
+            ]
+        ),
+        .executableTarget(
+            name: "nemo-itn",
+            dependencies: ["CNemoTextProcessing"],
+            linkerSettings: [
+                .unsafeFlags([
+                    "-L../target/aarch64-apple-darwin/release",
+                    "-lnemo_text_processing"
+                ])
+            ]
+        ),
+        .executableTarget(
+            name: "nemo-tn",
+            dependencies: ["CNemoTextProcessing"],
+            linkerSettings: [
+                .unsafeFlags([
+                    "-L../target/aarch64-apple-darwin/release",
                     "-lnemo_text_processing"
                 ])
             ]
